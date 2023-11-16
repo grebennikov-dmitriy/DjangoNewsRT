@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+{% load bootstrap5 %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titile}}</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <script src="https://kit.fontawesome.com/a970
+47fead.js" crossorigin="anonymous"></script>
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+<h1>{{header1}}</h1>
+<p> value = {{value|default:"No data"}}</p>
+    {% if value > 0 %}
+         <h3> Переменная больше нуля</h3>
+    {% else  %}
+        <h3> Переменная меньше нуля</h3>
+    {% endif %}
+    <li>
+        {% for n in numbers%}
+            <ul> {{n.title|lower}}, {{n.date|lower}}</ul>
+            {%endfor%}
+    </li>
+<div class="container">
+    <div class="row">
+        <div class="col-xl-3 col-md-6">
+            <h1>Контейнер1</h1>
+            <h2> Новость 1 </h2>
+            <p> Текст новости</p>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <h1>Контейнер2</h1>
+            <h2> Новость 2 </h2>
+            <p> Текст новости</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
